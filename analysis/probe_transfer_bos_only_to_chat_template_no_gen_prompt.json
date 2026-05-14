@@ -1,0 +1,16 @@
+{
+  "train_condition": "bos_only",
+  "test_condition": "chat_template_no_gen_prompt",
+  "in_acc": 1.0,
+  "transfer_acc": 0.944,
+  "retention": 0.944,
+  "n_train": 1000,
+  "n_test_overlap": 1000,
+  "shared_families": [
+    "aya",
+    "granite4",
+    "llama",
+    "olmo3",
+    "qwen3"
+  ]
+}

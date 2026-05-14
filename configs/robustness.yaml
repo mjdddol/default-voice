@@ -1,0 +1,66 @@
+# Robustness sweeps: sensitivity of main findings (family classifier
+# accuracy, trajectory shifts) to hyperparameter choices.
+# Reference model: qwen3_it. Reference language: en.
+
+# ---------- Sample-size sweep ----------
+# Confirms that N=2000 (paper main) is in the converged regime. Plot is
+# feature mean +/- 95% CI as a function of N -> flat after ~1500.
+sample_size:
+  reference_model: qwen3_it
+  reference_condition: bos_only
+  Ns: [200, 500, 1000, 2000, 5000]
+  metric: per_feature_mean_ci
+
+# ---------- Temperature sweep ----------
+# Confirms main findings (family classifier accuracy, trajectory) are
+# stable across T in [0.7, 1.3].
+temperature:
+  reference_models:
+    - qwen3_it
+    - olmo3_it
+    - mistral_it
+    - llama31_it
+  reference_condition: bos_only
+  Ts: [0.7, 1.0, 1.3]
+  N_per_setting: 500
+  metric: family_classifier_accuracy
+
+# ---------- Output-length sweep ----------
+# Shows feature stability across max_new_tokens. Important for MTLD and
+# sentence-level features which need length.
+output_length:
+  reference_model: qwen3_it
+  reference_condition: bos_only
+  max_tokens: [128, 256, 512, 1024]
+  N_per_setting: 500
+  metric: per_feature_mean
+
+# ---------- Random-prefix length sweep ----------
+random_prefix_len:
+  reference_model: qwen3_it
+  reference_condition: random_prefix
+  n_random_tokens_grid: [3, 5, 10, 20]
+  N_per_setting: 500
+  metric: per_feature_mean
+
+# ---------- Lexicon ablation ----------
+# Drop 50 % of each lexicon at random and re-compute features and the
+# family classifier. If accuracy drops sharply, our finding is
+# lexicon-dependent (a known weakness). If stable, the finding is robust
+# to specific word choices.
+lexicon_ablation:
+  reference_input: outputs/all_features.parquet  # post-aggregate
+  ablation_seeds: [0, 1, 2, 3, 4]
+  drop_fraction: 0.5
+
+# ---------- Quantization confound check ----------
+# AWQ-quantized models may have systematically different default voice from
+# FP16 models. We test by sampling Gemma 3 12B in BOTH FP16 and AWQ on the
+# same 500-sample condition and verifying feature deltas are <0.05 cosine
+# distance -- i.e., quantization is not driving family-level differences.
+quantization_check:
+  paired_models:
+    - {fp16: gemma3_it,           awq: gemma3_it_awq}     # if both downloaded
+    - {fp16: olmo3_it_fp16,       awq: olmo3_it_awq}      # if both downloaded
+  N_per_setting: 500
+  metric: cosine_distance_per_feature_mean

@@ -1,0 +1,16 @@
+{
+  "train_condition": "bos_only",
+  "test_condition": "empty_user",
+  "in_acc": 1.0,
+  "transfer_acc": 0.984,
+  "retention": 0.984,
+  "n_train": 1000,
+  "n_test_overlap": 1000,
+  "shared_families": [
+    "aya",
+    "granite4",
+    "llama",
+    "olmo3",
+    "qwen3"
+  ]
+}

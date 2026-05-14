@@ -1,0 +1,13 @@
+numpy>=1.26
+pandas>=2.2
+pyarrow>=15
+scikit-learn>=1.4
+scipy>=1.12
+matplotlib>=3.8
+seaborn>=0.13
+pyyaml>=6.0
+tqdm>=4.66
+spacy>=3.7
+transformers>=4.45
+torch>=2.4
+vllm>=0.19

@@ -1,0 +1,362 @@
+# Model registry, organized by experimental role.
+#
+# Size policy:
+#  * The cross-family main panel uses the 7-9 B FP16 subset.
+#  * Larger or lower-precision variants are included only where they are
+#    part of the model release (e.g. Ministral 3 14B Instruct FP8) and are
+#    flagged in the paper.
+
+# 7-9 B FP16 subset for size-controlled main analysis. These model names
+# (must match a `name:` below) are the canonical E1 set.
+size_controlled_subset:
+  - llama31_base
+  - llama31_it
+  - qwen3_base
+  - qwen3_it
+  - qwen25_base
+  - qwen25_it
+  - qwen35_base
+  - qwen35_it
+  - mistral_base
+  - mistral_it
+  - olmo2_base
+  - olmo2_it
+  - olmo3_base
+  - olmo3_it
+  - aya_expanse
+  - granite41_8b_base
+  - granite41_8b_it
+  - ministral3_8b_base
+  - ministral3_8b_it
+  - ministral3_8b_reason
+  - gemma2_base
+  - gemma2_it
+
+# ============================================================
+# Tier A: Cross-family (E1) -- 8B class, base + instruct pairs
+# ============================================================
+cross_family:
+  - name: llama31_base
+    hf_id: meta-llama/Llama-3.1-8B
+    family: llama
+    stage: base
+    size_b: 8.0
+    quantization: null
+
+  - name: llama31_it
+    hf_id: meta-llama/Llama-3.1-8B-Instruct
+    family: llama
+    stage: instruct
+    size_b: 8.0
+    quantization: null
+
+  - name: qwen3_base
+    hf_id: Qwen/Qwen3-8B-Base
+    family: qwen3
+    stage: base
+    size_b: 8.0
+    quantization: null
+
+  - name: qwen3_it
+    hf_id: Qwen/Qwen3-8B
+    family: qwen3
+    stage: instruct
+    size_b: 8.0
+    quantization: null
+
+  - name: qwen25_base
+    hf_id: Qwen/Qwen2.5-7B
+    family: qwen25
+    stage: base
+    size_b: 7.0
+    quantization: null
+
+  - name: qwen25_it
+    hf_id: Qwen/Qwen2.5-7B-Instruct
+    family: qwen25
+    stage: instruct
+    size_b: 7.0
+    quantization: null
+
+  - name: mistral_base
+    hf_id: mistralai/Mistral-7B-v0.3
+    family: mistral
+    stage: base
+    size_b: 7.0
+    quantization: null
+
+  - name: mistral_it
+    hf_id: mistralai/Mistral-7B-Instruct-v0.3
+    family: mistral
+    stage: instruct
+    size_b: 7.0
+    quantization: null
+
+  - name: mistral_nemo_base
+    hf_id: mistralai/Mistral-Nemo-Base-2407
+    family: mistral_nemo
+    stage: base
+    size_b: 12.0
+    quantization: null         # actually FP16 in cache; load with reduced max_model_len
+    max_model_len: 2048
+    gpu_memory_utilization: 0.93
+
+  - name: mistral_nemo_it
+    hf_id: mistralai/Mistral-Nemo-Instruct-2407
+    family: mistral_nemo
+    stage: instruct
+    size_b: 12.0
+    quantization: null
+    max_model_len: 2048
+    gpu_memory_utilization: 0.93
+
+  - name: gemma2_base
+    hf_id: google/gemma-2-9b
+    family: gemma2
+    stage: base
+    size_b: 9.0
+    quantization: null
+
+  - name: gemma2_it
+    hf_id: google/gemma-2-9b-it
+    family: gemma2
+    stage: instruct
+    size_b: 9.0
+    quantization: null
+
+  - name: gemma3_base
+    hf_id: google/gemma-3-12b-pt
+    family: gemma3
+    stage: base
+    size_b: 12.0
+    quantization: null         # FP16 in cache
+    max_model_len: 2048
+    gpu_memory_utilization: 0.93
+
+  - name: gemma3_it
+    hf_id: google/gemma-3-12b-it
+    family: gemma3
+    stage: instruct
+    size_b: 12.0
+    quantization: null
+    max_model_len: 2048
+    gpu_memory_utilization: 0.93
+
+  # Phi-4 14.7B FP16 is too big for 24GB even at gpu_mem 0.95;
+  # excluded from main run. Re-add with AWQ download if needed for paper.
+  # - name: phi4
+  #   hf_id: microsoft/phi-4
+  #   family: phi
+  #   stage: instruct
+  #   size_b: 14.7
+  #   quantization: null   # SKIP -- FP16, won't fit
+
+  - name: olmo3_base
+    hf_id: allenai/Olmo-3-1025-7B
+    family: olmo3
+    stage: base
+    size_b: 7.0
+    quantization: null
+
+  - name: olmo3_it
+    hf_id: allenai/Olmo-3-7B-Instruct
+    family: olmo3
+    stage: instruct
+    size_b: 7.0
+    quantization: null
+
+  - name: olmo2_base
+    hf_id: allenai/OLMo-2-1124-7B
+    family: olmo2
+    stage: base
+    size_b: 7.0
+    quantization: null
+
+  - name: olmo2_it
+    hf_id: allenai/OLMo-2-1124-7B-Instruct
+    family: olmo2
+    stage: instruct
+    size_b: 7.0
+    quantization: null
+
+  - name: aya_expanse
+    hf_id: CohereLabs/aya-expanse-8b
+    family: aya
+    stage: instruct
+    size_b: 8.0
+    quantization: null
+
+  # ---- Latest 2026 releases ----
+  - name: qwen35_base
+    hf_id: Qwen/Qwen3.5-9B-Base
+    family: qwen35
+    stage: base
+    size_b: 9.0
+    quantization: null
+
+  - name: qwen35_it
+    hf_id: Qwen/Qwen3.5-9B
+    family: qwen35
+    stage: instruct
+    size_b: 9.0
+    quantization: null
+
+  - name: gemma4_base
+    hf_id: google/gemma-4-E4B
+    family: gemma4
+    stage: base
+    size_b: 4.0       # effective; matformer architecture
+    quantization: null
+
+  - name: gemma4_it
+    hf_id: google/gemma-4-E4B-it
+    family: gemma4
+    stage: instruct
+    size_b: 4.0
+    quantization: null
+
+  # ---- Ministral-3 family (Mistral 3, Dec 2025) -- Base + Instruct + Reasoning ----
+  - name: ministral3_8b_base
+    hf_id: mistralai/Ministral-3-8B-Base-2512
+    family: ministral3
+    stage: base
+    size_b: 8.0
+    quantization: null
+
+  - name: ministral3_8b_it
+    hf_id: mistralai/Ministral-3-8B-Instruct-2512
+    family: ministral3
+    stage: instruct
+    size_b: 8.0
+    quantization: null
+
+  - name: ministral3_8b_reason
+    hf_id: mistralai/Ministral-3-8B-Reasoning-2512
+    family: ministral3
+    stage: reasoning
+    size_b: 8.0
+    quantization: null
+
+  # ---- Granite 4.1 family (IBM, 2026) ----
+  - name: granite41_8b_base
+    hf_id: ibm-granite/granite-4.1-8b-base
+    family: granite4
+    stage: base
+    size_b: 8.0
+    quantization: null
+
+  - name: granite41_8b_it
+    hf_id: ibm-granite/granite-4.1-8b
+    family: granite4
+    stage: instruct
+    size_b: 8.0
+    quantization: null
+
+# ============================================================
+# Tier A2: Ministral-3 trajectory family (E2-replicate)
+# 3 sizes x 3 stages (Base / Instruct / Reasoning) = 9 weights
+# Used to replicate OLMo-3 trajectory finding in a second family.
+# ============================================================
+trajectory_ministral3:
+  - {name: m3_3_base,    hf_id: mistralai/Ministral-3-3B-Base-2512,        size_b: 3.0,  stage: base}
+  - {name: m3_3_it,      hf_id: mistralai/Ministral-3-3B-Instruct-2512,    size_b: 3.0,  stage: instruct}
+  - {name: m3_3_reason,  hf_id: mistralai/Ministral-3-3B-Reasoning-2512,   size_b: 3.0,  stage: reasoning}
+  - {name: m3_8_base,    hf_id: mistralai/Ministral-3-8B-Base-2512,        size_b: 8.0,  stage: base}
+  - {name: m3_8_it,      hf_id: mistralai/Ministral-3-8B-Instruct-2512,    size_b: 8.0,  stage: instruct}
+  - {name: m3_8_reason,  hf_id: mistralai/Ministral-3-8B-Reasoning-2512,   size_b: 8.0,  stage: reasoning}
+  # Ministral-3 14B variants -- Instruct is FP8 (16GB), Base is FP16 (28GB).
+  # 14B FP16 too big for 24GB; 14B FP8 fits.
+  - {name: m3_14_base,   hf_id: mistralai/Ministral-3-14B-Base-2512,       size_b: 14.0, stage: base, max_model_len: 2048, gpu_memory_utilization: 0.93}    # FP16, tight
+  - {name: m3_14_it,     hf_id: mistralai/Ministral-3-14B-Instruct-2512,   size_b: 14.0, stage: instruct}                                                      # FP8 -- fits
+  - {name: m3_14_reason, hf_id: mistralai/Ministral-3-14B-Reasoning-2512,  size_b: 14.0, stage: reasoning, max_model_len: 2048, gpu_memory_utilization: 0.93}
+
+# ============================================================
+# Tier B: Post-training trajectory (E2) -- OLMo 3 full chain
+# ============================================================
+trajectory_olmo3:
+  - name: olmo3_t_base
+    hf_id: allenai/Olmo-3-1025-7B
+    stage: base
+    stage_idx: 0
+
+  - name: olmo3_t_sft
+    hf_id: allenai/Olmo-3-7B-Instruct-SFT
+    stage: sft
+    stage_idx: 1
+
+  - name: olmo3_t_dpo
+    hf_id: allenai/Olmo-3-7B-Instruct-DPO
+    stage: dpo
+    stage_idx: 2
+
+  - name: olmo3_t_rlvr
+    hf_id: allenai/Olmo-3-7B-Instruct
+    stage: rlvr_final
+    stage_idx: 3
+
+  # Specialized RL branches (parallel to RLVR)
+  - name: olmo3_t_rl_code
+    hf_id: allenai/Olmo-3-7B-RL-Zero-Code
+    stage: rl_zero_code
+    stage_idx: 3
+
+  - name: olmo3_t_rl_math
+    hf_id: allenai/Olmo-3-7B-RL-Zero-Math
+    stage: rl_zero_math
+    stage_idx: 3
+
+  - name: olmo3_t_rl_mix
+    hf_id: allenai/Olmo-3-7B-RL-Zero-Mix
+    stage: rl_zero_mix
+    stage_idx: 3
+
+  # Thinking variants
+  - name: olmo3_t_think_sft
+    hf_id: allenai/Olmo-3-7B-Think-SFT
+    stage: think_sft
+    stage_idx: 4
+
+  - name: olmo3_t_think
+    hf_id: allenai/Olmo-3-7B-Think
+    stage: think_final
+    stage_idx: 5
+
+# ============================================================
+# Tier C: Scale ladder (E3) -- Qwen 3 sizes, base + instruct
+# ============================================================
+scale_qwen3:
+  - {name: q3_06_base,  hf_id: Qwen/Qwen3-0.6B-Base, size_b: 0.6, stage: base}
+  - {name: q3_06_it,    hf_id: Qwen/Qwen3-0.6B,      size_b: 0.6, stage: instruct}
+  - {name: q3_17_base,  hf_id: Qwen/Qwen3-1.7B-Base, size_b: 1.7, stage: base}
+  - {name: q3_17_it,    hf_id: Qwen/Qwen3-1.7B,      size_b: 1.7, stage: instruct}
+  - {name: q3_4_base,   hf_id: Qwen/Qwen3-4B-Base,   size_b: 4.0, stage: base}
+  - {name: q3_4_it,     hf_id: Qwen/Qwen3-4B,        size_b: 4.0, stage: instruct}
+  - {name: q3_8_base,   hf_id: Qwen/Qwen3-8B-Base,   size_b: 8.0, stage: base}
+  - {name: q3_8_it,     hf_id: Qwen/Qwen3-8B,        size_b: 8.0, stage: instruct}
+  # Qwen-3-14B FP16 in cache is 28GB -- too big for 24GB GPU. Skip from
+  # the scale-ladder run; Qwen-3-8B is the largest that fits.
+  # - {name: q3_14_base,  hf_id: Qwen/Qwen3-14B-Base,  size_b: 14.0, stage: base}
+  # - {name: q3_14_it,    hf_id: Qwen/Qwen3-14B,       size_b: 14.0, stage: instruct}
+
+# ============================================================
+# Tier D: Reasoning vs non-reasoning (bonus E)
+# ============================================================
+reasoning_pairs:
+  - {name: phi4_plain,  hf_id: microsoft/phi-4,                 has_reasoning: false}
+  - {name: phi4_reason, hf_id: microsoft/Phi-4-reasoning,       has_reasoning: true}
+  - {name: q25_plain,   hf_id: Qwen/Qwen2.5-7B-Instruct,        has_reasoning: false}
+  - {name: q25_math,    hf_id: Qwen/Qwen2.5-Math-7B,            has_reasoning: false, specialized: math}
+  - {name: dsr1_distill, hf_id: deepseek-ai/DeepSeek-R1-Distill-Qwen-7B, has_reasoning: true}
+  - {name: olmo3_plain, hf_id: allenai/Olmo-3-7B-Instruct,      has_reasoning: false}
+  - {name: olmo3_think, hf_id: allenai/Olmo-3-7B-Think,         has_reasoning: true}
+
+# ============================================================
+# vLLM defaults
+# ============================================================
+vllm_defaults:
+  dtype: bfloat16
+  max_model_len: 4096          # generation needs at most ~500, prompt at most ~200
+  gpu_memory_utilization: 0.85 # leave room for ICLR coexistence test
+  enforce_eager: false
+  trust_remote_code: true
+  swap_space: 4                # GB

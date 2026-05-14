@@ -1,0 +1,215 @@
+# Five sampling conditions for E1 (cross-family default voice).
+#
+# Goal: signature that appears across multiple conditions = real default voice.
+# Signature in only one condition = artifact of that condition.
+#
+# All hyperparameters below have a stated rationale or robustness
+# check listed in `configs/robustness.yaml`.
+
+conditions:
+
+  # 1. Pure unconditional. BOS only, no chat template.
+  #    Tests the rawest possible model prior.
+  - id: bos_only
+    description: BOS token only, raw model.
+    use_chat_template: false
+    prompt_text: ""           # tokenizer adds BOS
+    expected_artifacts:
+      - tokenizer noise
+      - pretraining-document-opening boilerplate
+
+  # 2. Empty user message under chat template.
+  #    Activates the assistant's chat-tuned default. For base models that
+  #    have no chat template, falls back to BOS-only (handled in sample.py).
+  - id: empty_user
+    description: Chat template with empty user turn.
+    use_chat_template: true
+    messages:
+      - {role: user, content: ""}
+    expected_artifacts:
+      - chat template baked-in greeting
+
+  # 3. Minimal continuation cue.
+  #    Tests whether the default needs a tiny trigger to surface.
+  #    Localized per language (configs/languages.yaml).
+  - id: continue_cue
+    description: One-word neutral continuation.
+    use_chat_template: false
+    prompt_text: "Continue."
+    expected_artifacts: []
+
+  # 4. Random short prefix.
+  #    Tests robustness of the signature against arbitrary token noise.
+  #    n_random_tokens=5 chosen so the prefix is short enough not to
+  #    dominate the continuation but long enough to escape the BOS regime.
+  #    Robustness sweep: 3 / 5 / 10 (see configs/robustness.yaml).
+  - id: random_prefix
+    description: 5 random tokens sampled uniformly from vocab.
+    use_chat_template: false
+    prompt_text: "<random>"   # placeholder; runtime replaces
+    n_random_tokens: 5
+    expected_artifacts:
+      - very-low-prob token continuation
+
+  # 5. Document-opening prompt.
+  #    Probes pretraining-style continuation as a corpus prior control.
+  - id: document_opening
+    description: Generic document-opening prefix.
+    use_chat_template: false
+    prompt_text: "The following is a passage."
+    expected_artifacts:
+      - corpus-style narrative
+
+  # 6. Chat template applied but generation-prompt suffix STRIPPED.
+  #    Critical role-token ablation. Tests whether the assistant signal
+  #    is gated by the literal "<|im_start|>assistant\n" token (or its
+  #    family-specific equivalent) or by the chat template structure
+  #    in general. With BOS-only / empty_user / this third probe, we get
+  #    a 3-step gradient:
+  #      bos_only                       0% chat template
+  #      chat_template_no_gen_prompt    template + user, no assistant tag
+  #      empty_user                     full template with assistant tag
+  #    The gradient localizes where the chat-default voice activates.
+  - id: chat_template_no_gen_prompt
+    description: Chat template, empty user message, no generation prompt suffix.
+    use_chat_template: true
+    add_generation_prompt: false       # honored in sample.py
+    messages:
+      - {role: user, content: ""}
+    expected_artifacts:
+      - chat tags but no assistant trigger
+
+# ============================================================
+# Sampling defaults -- every value below has a stated rationale.
+# Robustness checks for arbitrary numeric choices live in
+# configs/robustness.yaml; main paper reports E1 with these defaults
+# and references the appendix for the sweep.
+# ============================================================
+sampling:
+  # ---- Sample count ----
+  # 2000 samples per (model, condition) gives standard error of normalized
+  # features <= 0.022 under empirically measured std. Stability across N
+  # is validated by the sweep in robustness.yaml.
+  n_samples_per_model_per_condition: 2000
+  pilot_n: 100                 # small-N option for the --pilot flag
+
+  # ---- Output length ----
+  # max_new_tokens=512 chosen so each sample contains ~80-120 sentences and
+  # ~300-500 words on average -- sufficient for stable MTLD (McCarthy & Jarvis
+  # 2010 recommend >=100 tokens for MTLD reliability). We sweep 256/512/1024
+  # in robustness.yaml.
+  max_new_tokens: 512
+
+  # min_new_tokens=32 forces a minimum length so feature estimators
+  # (TTR, MTLD, sentence-length, syntactic measures) have a stable base.
+  # Empirically, models occasionally emit very short outputs and we drop
+  # those rather than count them as default voice.
+  min_new_tokens: 32
+
+  # ---- Decoding distribution ----
+  # temperature=1.0 preserves the model's natural unconditional distribution.
+  # Default register is by definition the unfiltered prior; lower T (e.g.
+  # 0.7) sharpens to a mode and biases the register estimate. We sweep
+  # 0.7 / 1.0 / 1.3 in robustness.yaml to confirm findings are T-invariant.
+  temperature: 1.0
+  top_p: 1.0                   # no nucleus filtering -- see above
+  top_k: -1                    # disabled
+  seed: null                   # different seed per sample (see sample.py)
+
+  # ---- Stop conditions ----
+  # No custom stops -- we want the full natural register expression.
+  stop_sequences: []
+
+  # ---- Post-hoc filtering ----
+  # Drop any sample with < drop_below_words real words after tokenization.
+  # Avoids letting near-empty completions inflate variance.
+  drop_below_words: 30
+
+# ============================================================
+# Suppression conditions (E4 -- does default voice persist under prompting?)
+# Each suppression prompt directly attacks one register feature.
+# Compared against `control_neutral` baseline.
+# ============================================================
+suppression:
+  - id: anti_self_ref
+    description: Suppress self-reference.
+    target_feature: first_person_density
+    system_prompt: |
+      You must never refer to yourself. Do not use the word "I", "me", "my",
+      or refer to yourself as an AI. Just write content.
+    user_prompt: "Write a short paragraph about an interesting topic."
+
+  - id: anti_hedging
+    description: Suppress hedging language.
+    target_feature: hedging_density
+    system_prompt: |
+      Be direct. Do not hedge. Do not use words like "may", "might",
+      "perhaps", "I think", or any qualifier of uncertainty.
+    user_prompt: "Write a short paragraph about an interesting topic."
+
+  - id: anti_assistant
+    description: Force a non-assistant register.
+    target_feature: assistant_phrase_ratio
+    system_prompt: |
+      Adopt the voice of a 19th century English novelist. Use that register
+      consistently. Do not break character.
+    user_prompt: "Write a short paragraph about an interesting topic."
+
+  - id: anti_verbosity
+    description: Force concise output.
+    target_feature: mean_sentence_length
+    system_prompt: |
+      Be extremely concise. One sentence only.
+    user_prompt: "Write a short paragraph about an interesting topic."
+
+  - id: control_neutral
+    description: Control -- neutral system prompt, same user query.
+    target_feature: null
+    system_prompt: "You are a helpful assistant."
+    user_prompt: "Write a short paragraph about an interesting topic."
+
+  # ---------- Positive-control prompts ----------
+  # These ASK the feature to *increase*. They confirm the model can in fact
+  # follow direction-changing prompts at all -- required to interpret the
+  # null-hypothesis (negative-control) result as genuine persistence rather
+  # than the model failing to understand the instruction.
+  #
+  # Reading: For default voice to "persist", we need
+  #   |Delta_(pro_X)|  >>  |Delta_(anti_X)|
+  # i.e. the model can move the feature up easily but resists moving it down.
+
+  - id: pro_self_ref
+    description: Positive control -- increase self-reference.
+    target_feature: first_person_density
+    target_direction: increase
+    system_prompt: |
+      Refer to yourself often. Use "I", "me", and "my" frequently.
+      Speak from your own perspective.
+    user_prompt: "Write a short paragraph about an interesting topic."
+
+  - id: pro_hedging
+    description: Positive control -- increase hedging.
+    target_feature: hedging_density
+    target_direction: increase
+    system_prompt: |
+      Hedge everything you say. Use phrases like "may", "might", "perhaps",
+      "I think", "it could be", "I'm not sure but" frequently.
+    user_prompt: "Write a short paragraph about an interesting topic."
+
+  - id: pro_assistant
+    description: Positive control -- increase assistant-style phrasing.
+    target_feature: assistant_phrase_ratio
+    target_direction: increase
+    system_prompt: |
+      Speak like a helpful AI assistant. Use phrases like "I'd be happy to",
+      "Let me explain", "I hope this helps", "Feel free to ask".
+    user_prompt: "Write a short paragraph about an interesting topic."
+
+  - id: pro_verbosity
+    description: Positive control -- long, multi-sentence output.
+    target_feature: mean_sentence_length
+    target_direction: increase
+    system_prompt: |
+      Write at length. Use long, elaborate sentences with many subordinate
+      clauses. Be verbose.
+    user_prompt: "Write a short paragraph about an interesting topic."

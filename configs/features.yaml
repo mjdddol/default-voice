@@ -1,0 +1,68 @@
+# Linguistic features extracted from each generation.
+# Implementation: src/features.py
+# All features computed per-sample, then aggregated to per-model profiles.
+
+# ============================================================
+# Lexical features (from token/word-level statistics)
+# ============================================================
+lexical:
+  - ttr                          # type-token ratio (vocabulary diversity)
+  - mtld                         # measure of textual lexical diversity (length-robust)
+  - hapax_ratio                  # fraction of words appearing exactly once
+  - mean_word_length             # avg characters per word
+  - function_word_ratio          # fraction of tokens that are function words
+  - content_word_ratio           # 1 - function_word_ratio
+  - hedging_density              # hedging markers / total words
+  - assertive_density            # assertive markers / total words
+  - modal_density                # modal verbs / total words
+  - first_person_density         # I/me/my/we/us/our / total words
+  - third_person_density         # he/she/it/they / total words
+  - second_person_density        # you/your / total words
+
+# ============================================================
+# Syntactic features (spaCy-derived)
+# ============================================================
+syntactic:
+  - mean_sentence_length         # avg tokens per sentence
+  - mean_dep_depth               # avg syntactic dependency depth
+  - passive_ratio                # passive constructions / total clauses
+  - subordinate_ratio            # subordinate clauses / total clauses
+  - punctuation_density          # punctuation tokens / total tokens
+  - pos_dist_kl                  # KL of POS-tag distribution vs reference
+
+# ============================================================
+# Discourse / register markers
+# ============================================================
+discourse:
+  - discourse_marker_density     # however, furthermore, etc. / sentences
+  - assistant_phrase_ratio       # 'as an AI', 'I hope this helps' etc.
+  - apology_density              # apology phrases per response
+  - refusal_density              # 'cannot', "can't", "I'm unable" etc.
+  - politeness_score             # politeness lexicon hits / total words
+  - formality_score              # heuristic formality (Pavlick & Tetreault)
+  - emoji_density                # emoji per 1000 chars
+  - markdown_density             # markdown tokens (#, **, [, |) per 1000 chars
+
+# ============================================================
+# Diversity (per-model, computed across samples)
+# ============================================================
+diversity:
+  - distinct_1                   # unique unigrams / total unigrams (corpus-level)
+  - distinct_2                   # unique bigrams / total bigrams
+  - distinct_3                   # unique trigrams / total trigrams
+  - mean_pairwise_embedding_dist # avg cosine distance between sample embeddings
+  - sample_entropy               # entropy of n-gram distribution
+  - topic_concentration          # top-k topic mass (BERTopic)
+
+# Lexicons (paths populated by setup script)
+lexicons:
+  hedging: data/lexicons/hedging.txt
+  assertive: data/lexicons/assertive.txt
+  function_words: data/lexicons/function_words.txt
+  assistant_phrases: data/lexicons/assistant_phrases.txt
+  apology: data/lexicons/apology.txt
+  refusal: data/lexicons/refusal.txt
+  politeness: data/lexicons/politeness.txt
+  formal: data/lexicons/formal.txt
+  informal: data/lexicons/informal.txt
+  discourse_markers: data/lexicons/discourse_markers.txt

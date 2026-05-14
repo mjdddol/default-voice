@@ -1,0 +1,1028 @@
+{
+  "F1_cross_family": {
+    "qwen3": {
+      "bos_only": {
+        "assistant_phrase_ratio": 0.02167503706683116,
+        "first_person_density": 0.006197052346264943,
+        "hedging_density": 0.0032979499340826165,
+        "refusal_density": 0.00031289111389236547,
+        "mean_sentence_length": 175.63866578861544,
+        "n_words": 346.25,
+        "n_samples": 68
+      },
+      "chat_template_no_gen_prompt": {
+        "assistant_phrase_ratio": 0.05513072892546669,
+        "first_person_density": 0.0347745441396855,
+        "hedging_density": 0.02883740529681667,
+        "refusal_density": 0.009416680603401745,
+        "mean_sentence_length": 13.672572460377568,
+        "n_words": 316.3694984646878,
+        "n_samples": 977
+      },
+      "continue_cue": {
+        "assistant_phrase_ratio": 0.04742838321281394,
+        "first_person_density": 0.05517560898573235,
+        "hedging_density": 0.043116212593401225,
+        "refusal_density": 0.02031052074867009,
+        "mean_sentence_length": 12.430775211056782,
+        "n_words": 253.349,
+        "n_samples": 2000
+      },
+      "empty_user": {
+        "assistant_phrase_ratio": 0.14238938462461873,
+        "first_person_density": 0.049536169451237656,
+        "hedging_density": 0.058222109655844664,
+        "refusal_density": 0.004678318635189036,
+        "mean_sentence_length": 10.463685750596847,
+        "n_words": 135.7726814516129,
+        "n_samples": 1984
+      }
+    },
+    "llama": {
+      "bos_only": {
+        "assistant_phrase_ratio": 0.022638443295417716,
+        "first_person_density": 0.005741872896168141,
+        "hedging_density": 0.005642703157925763,
+        "refusal_density": 0.01387637415239088,
+        "mean_sentence_length": 36.90904549958271,
+        "n_words": 404.76935064935066,
+        "n_samples": 1925
+      },
+      "chat_template_no_gen_prompt": {
+        "assistant_phrase_ratio": 0.030384876742724623,
+        "first_person_density": 0.013126280807168758,
+        "hedging_density": 0.018906640509301523,
+        "refusal_density": 0.006382262838692932,
+        "mean_sentence_length": 22.89366558660678,
+        "n_words": 191.01364113326338,
+        "n_samples": 953
+      },
+      "continue_cue": {
+        "assistant_phrase_ratio": 0.06342609570360008,
+        "first_person_density": 0.0520365765297731,
+        "hedging_density": 0.08927320826940774,
+        "refusal_density": 0.009565125254507187,
+        "mean_sentence_length": 15.199828815458767,
+        "n_words": 52.1405176967776,
+        "n_samples": 1893
+      },
+      "empty_user": {
+        "assistant_phrase_ratio": 0.3097195166639751,
+        "first_person_density": 0.06322104870905215,
+        "hedging_density": 0.034965929255008965,
+        "refusal_density": 0.0004667939741141523,
+        "mean_sentence_length": 11.92531278466695,
+        "n_words": 39.84595798854233,
+        "n_samples": 1571
+      }
+    },
+    "ministral3": {},
+    "gemma4": {
+      "bos_only": {
+        "assistant_phrase_ratio": 0.02490013665397592,
+        "first_person_density": 0.014298470422010606,
+        "hedging_density": 0.010398380972229867,
+        "refusal_density": 0.004742954476696427,
+        "mean_sentence_length": 21.045834236836985,
+        "n_words": 231.61526315789473,
+        "n_samples": 1900
+      },
+      "chat_template_no_gen_prompt": {
+        "assistant_phrase_ratio": 0.01168723967849877,
+        "first_person_density": 0.00819669987876641,
+        "hedging_density": 0.006653802613768729,
+        "refusal_density": 0.0030599364181424296,
+        "mean_sentence_length": 17.312663842848913,
+        "n_words": 298.54111675126904,
+        "n_samples": 985
+      },
+      "continue_cue": {
+        "assistant_phrase_ratio": 0.019842923162596508,
+        "first_person_density": 0.07052758637839399,
+        "hedging_density": 0.023209817234812576,
+        "refusal_density": 0.00013480480264576892,
+        "mean_sentence_length": 9.458951190712048,
+        "n_words": 75.71061902365375,
+        "n_samples": 1987
+      },
+      "empty_user": {
+        "assistant_phrase_ratio": 0.10852694612189161,
+        "first_person_density": 0.05897426462495614,
+        "hedging_density": 0.018536630212418866,
+        "refusal_density": 0.001615713076233005,
+        "mean_sentence_length": 9.68554637316483,
+        "n_words": 112.39673340358272,
+        "n_samples": 1898
+      }
+    },
+    "aya": {
+      "bos_only": {
+        "assistant_phrase_ratio": 0.01172205609516174,
+        "first_person_density": 0.011823957790585215,
+        "hedging_density": 0.006224755581048866,
+        "refusal_density": 0.002967437484926262,
+        "mean_sentence_length": 26.340838771393816,
+        "n_words": 345.2552004058853,
+        "n_samples": 1971
+      },
+      "chat_template_no_gen_prompt": {
+        "assistant_phrase_ratio": 0.005926175964547087,
+        "first_person_density": 0.016076703639434826,
+        "hedging_density": 0.003408117581572382,
+        "refusal_density": 0.002290518174156643,
+        "mean_sentence_length": 32.711907108357074,
+        "n_words": 208.02697095435684,
+        "n_samples": 964
+      },
+      "continue_cue": {
+        "assistant_phrase_ratio": 0.05295157594828753,
+        "first_person_density": 0.04793808069238598,
+        "hedging_density": 0.020528148854712734,
+        "refusal_density": 0.0005236471861471861,
+        "mean_sentence_length": 14.703757176434506,
+        "n_words": 135.212,
+        "n_samples": 2000
+      },
+      "empty_user": {
+        "assistant_phrase_ratio": 0.03221013901652027,
+        "first_person_density": 0.008026038052625488,
+        "hedging_density": 0.011347676376578672,
+        "refusal_density": 0.009455341293036346,
+        "mean_sentence_length": 17.726181961885374,
+        "n_words": 276.57881269191404,
+        "n_samples": 1954
+      }
+    },
+    "olmo3": {
+      "bos_only": {
+        "assistant_phrase_ratio": 0.020423484487104373,
+        "first_person_density": 0.012166902845938977,
+        "hedging_density": 0.010363429351102089,
+        "refusal_density": 0.006720916357052369,
+        "mean_sentence_length": 43.6041507739934,
+        "n_words": 213.9558583106267,
+        "n_samples": 1835
+      },
+      "chat_template_no_gen_prompt": {
+        "assistant_phrase_ratio": 0.3206351771477822,
+        "first_person_density": 0.04852816698376761,
+        "hedging_density": 0.019898995644030415,
+        "refusal_density": 0.0,
+        "mean_sentence_length": 8.063964431926616,
+        "n_words": 33.96978021978022,
+        "n_samples": 364
+      },
+      "continue_cue": {
+        "assistant_phrase_ratio": 0.07457809828985353,
+        "first_person_density": 0.07334982292866496,
+        "hedging_density": 0.035690162332025065,
+        "refusal_density": 0.005863790887945477,
+        "mean_sentence_length": 12.253867142876803,
+        "n_words": 47.83252818035427,
+        "n_samples": 1863
+      },
+      "empty_user": {
+        "assistant_phrase_ratio": 0.3144919761199699,
+        "first_person_density": 0.04768229960800291,
+        "hedging_density": 0.024296449282278337,
+        "refusal_density": 0.00044033465433729633,
+        "mean_sentence_length": 7.826414837181018,
+        "n_words": 35.09114927344782,
+        "n_samples": 757
+      }
+    },
+    "granite4": {
+      "bos_only": {
+        "assistant_phrase_ratio": 0.011135374788741631,
+        "first_person_density": 0.0069351307763292165,
+        "hedging_density": 0.00561220284388735,
+        "refusal_density": 0.0013237635513809974,
+        "mean_sentence_length": 21.18788761520474,
+        "n_words": 77.6179952644041,
+        "n_samples": 1267
+      },
+      "chat_template_no_gen_prompt": {
+        "assistant_phrase_ratio": 0.020958638568484053,
+        "first_person_density": 0.006908663676403688,
+        "hedging_density": 0.008683592375327653,
+        "refusal_density": 0.006021912128183328,
+        "mean_sentence_length": 19.692058804339137,
+        "n_words": 310.2074521651561,
+        "n_samples": 993
+      },
+      "continue_cue": {
+        "assistant_phrase_ratio": 0.042131673881673874,
+        "first_person_density": 0.061957729309532326,
+        "hedging_density": 0.027339549387684913,
+        "refusal_density": 0.0005,
+        "mean_sentence_length": 17.29856084887335,
+        "n_words": 57.8985,
+        "n_samples": 2000
+      },
+      "empty_user": {
+        "assistant_phrase_ratio": 0.44601883892391075,
+        "first_person_density": 0.03145506159744782,
+        "hedging_density": 0.040529860405862886,
+        "refusal_density": 0.006293049932575755,
+        "mean_sentence_length": 12.447446515314091,
+        "n_words": 51.508796622097115,
+        "n_samples": 1421
+      }
+    }
+  },
+  "F1_fold_changes": {
+    "qwen3": {
+      "assistant_phrase_ratio": 6.56927986723096,
+      "first_person_density": 7.993505086510018,
+      "hedging_density": 17.6540307826232,
+      "mean_sentence_length": 0.05957506966712043,
+      "n_words": 0.39212326773028994
+    },
+    "llama": {
+      "assistant_phrase_ratio": 13.681131366778473,
+      "first_person_density": 11.010527375352202,
+      "hedging_density": 6.196662889469152,
+      "mean_sentence_length": 0.32310000497850255,
+      "n_words": 0.09844114413460285
+    },
+    "gemma4": {
+      "assistant_phrase_ratio": 4.3584879725775565,
+      "first_person_density": 4.124515621906876,
+      "hedging_density": 1.782645804373121,
+      "mean_sentence_length": 0.4602120431135966,
+      "n_words": 0.48527343090926006
+    },
+    "aya": {
+      "assistant_phrase_ratio": 2.7478233131655934,
+      "first_person_density": 0.6787945453438774,
+      "hedging_density": 1.8229914779507852,
+      "mean_sentence_length": 0.6729543472676364,
+      "n_words": 0.8010851461955253
+    },
+    "olmo3": {
+      "assistant_phrase_ratio": 15.398546527089625,
+      "first_person_density": 3.919017042526819,
+      "hedging_density": 2.3444410589526097,
+      "mean_sentence_length": 0.17948783999363854,
+      "n_words": 0.16401116356674644
+    },
+    "granite4": {
+      "assistant_phrase_ratio": 40.054227844657376,
+      "first_person_density": 4.535611888503863,
+      "hedging_density": 7.221738332214212,
+      "mean_sentence_length": 0.5874793533632687,
+      "n_words": 0.6636192605417527
+    }
+  },
+  "F2_olmo3_trajectory": {
+    "bos_only": {
+      "olmo3_t_base": {
+        "assistant_phrase_ratio": 0.01937191738659801,
+        "first_person_density": 0.014550487246294526,
+        "hedging_density": 0.011770044972249875,
+        "refusal_density": 0.009668544126897681,
+        "apology_density": 0.001654961588034871,
+        "mean_sentence_length": 39.426727173621074,
+        "ttr": 0.5416110354272242,
+        "markdown_density": 3.337675681638527,
+        "n_words": 286.9086711133915,
+        "n_samples": 1949
+      },
+      "olmo3_t_sft": {
+        "assistant_phrase_ratio": 0.016012114570549855,
+        "first_person_density": 0.01218274498256039,
+        "hedging_density": 0.006863613011830801,
+        "refusal_density": 0.004841649686058727,
+        "apology_density": 0.001512727578851219,
+        "mean_sentence_length": 51.62238887035655,
+        "ttr": 0.501196356543878,
+        "markdown_density": 10.839365701508545,
+        "n_words": 204.41079295154185,
+        "n_samples": 1816
+      },
+      "olmo3_t_dpo": {
+        "assistant_phrase_ratio": 0.017755984586523145,
+        "first_person_density": 0.010731850646941092,
+        "hedging_density": 0.00917788331830697,
+        "refusal_density": 0.009423856887066685,
+        "apology_density": 0.001646766096665939,
+        "mean_sentence_length": 41.664311150055326,
+        "ttr": 0.590541011559234,
+        "markdown_density": 10.201086376878369,
+        "n_words": 225.41489940184883,
+        "n_samples": 1839
+      },
+      "olmo3_t_rlvr": {
+        "assistant_phrase_ratio": 0.020633539611612184,
+        "first_person_density": 0.011519840139377933,
+        "hedging_density": 0.010862764520812317,
+        "refusal_density": 0.007879216422666443,
+        "apology_density": 0.0014103518983259646,
+        "mean_sentence_length": 44.38003925177457,
+        "ttr": 0.5296368278818374,
+        "markdown_density": 10.995282952362032,
+        "n_words": 211.65796628602502,
+        "n_samples": 1839
+      },
+      "olmo3_t_rl_code": {
+        "assistant_phrase_ratio": 0.019728291164928014,
+        "first_person_density": 0.01174680389406203,
+        "hedging_density": 0.010904840099064577,
+        "refusal_density": 0.0028176953603327964,
+        "apology_density": 0.001220222666040519,
+        "mean_sentence_length": 27.02669025754755,
+        "ttr": 0.5237917599266962,
+        "markdown_density": 4.010057820677595,
+        "n_words": 281.5769431403234,
+        "n_samples": 1917
+      },
+      "olmo3_t_rl_math": {
+        "assistant_phrase_ratio": 0.0180563292508872,
+        "first_person_density": 0.01263609985572042,
+        "hedging_density": 0.009912212476447023,
+        "refusal_density": 0.0036915119179630955,
+        "apology_density": 0.00144013568567239,
+        "mean_sentence_length": 26.054605628431677,
+        "ttr": 0.5562541332072597,
+        "markdown_density": 3.6440463209795877,
+        "n_words": 270.4026525198939,
+        "n_samples": 1885
+      },
+      "olmo3_t_think_sft": {
+        "assistant_phrase_ratio": 0.015592841516310808,
+        "first_person_density": 0.01045099599591803,
+        "hedging_density": 0.014911545878684599,
+        "refusal_density": 0.00237461401272008,
+        "apology_density": 0.0016744623902430768,
+        "mean_sentence_length": 69.46836226940763,
+        "ttr": 0.449175346797682,
+        "markdown_density": 9.538510518608359,
+        "n_words": 279.18833333333333,
+        "n_samples": 1800
+      },
+      "olmo3_t_think": {
+        "assistant_phrase_ratio": 0.015291311831836695,
+        "first_person_density": 0.008843859045091725,
+        "hedging_density": 0.014279572432883785,
+        "refusal_density": 0.003592775952268493,
+        "apology_density": 0.0012982207376204757,
+        "mean_sentence_length": 77.57771080353534,
+        "ttr": 0.4271706519671192,
+        "markdown_density": 8.666668276006684,
+        "n_words": 287.9561111111111,
+        "n_samples": 1800
+      }
+    },
+    "empty_user": {
+      "olmo3_t_base": {
+        "assistant_phrase_ratio": 0.01986640666003165,
+        "first_person_density": 0.014499744240421279,
+        "hedging_density": 0.01163774203158637,
+        "refusal_density": 0.008021967180533733,
+        "apology_density": 0.002168887571483309,
+        "mean_sentence_length": 40.052835788659785,
+        "ttr": 0.5422155653303972,
+        "markdown_density": 3.0831525339720587,
+        "n_words": 284.16212043232116,
+        "n_samples": 1943
+      },
+      "olmo3_t_sft": {
+        "assistant_phrase_ratio": 0.27464122302901744,
+        "first_person_density": 0.04528756840678718,
+        "hedging_density": 0.019200907852780308,
+        "refusal_density": 0.04625333428050449,
+        "apology_density": 0.019060021729987255,
+        "mean_sentence_length": 13.572629439140542,
+        "ttr": 0.7777781860042645,
+        "markdown_density": 1.2074985552179323,
+        "n_words": 86.35244360902256,
+        "n_samples": 1064
+      },
+      "olmo3_t_dpo": {
+        "assistant_phrase_ratio": 0.30761551030486456,
+        "first_person_density": 0.045359699987223924,
+        "hedging_density": 0.027792073437515212,
+        "refusal_density": 0.001027520791737158,
+        "apology_density": 0.0010237104550558087,
+        "mean_sentence_length": 8.070466072364477,
+        "ttr": 0.8513122700842851,
+        "markdown_density": 0.14678319394736683,
+        "n_words": 37.47018030513176,
+        "n_samples": 721
+      },
+      "olmo3_t_rlvr": {
+        "assistant_phrase_ratio": 0.3147909837911468,
+        "first_person_density": 0.04791507703044714,
+        "hedging_density": 0.02420152632117188,
+        "refusal_density": 0.0004351610095735422,
+        "apology_density": 0.0004686349333868916,
+        "mean_sentence_length": 7.814925822145082,
+        "ttr": 0.8596083935549632,
+        "markdown_density": 0.06341983052030667,
+        "n_words": 34.617493472584854,
+        "n_samples": 766
+      },
+      "olmo3_t_rl_code": {
+        "assistant_phrase_ratio": 0.05734360708699072,
+        "first_person_density": 0.016991199098164343,
+        "hedging_density": 0.021002460575990735,
+        "refusal_density": 0.005139954141534882,
+        "apology_density": 0.0006404535378358439,
+        "mean_sentence_length": 13.793675299661121,
+        "ttr": 0.41463248024367655,
+        "markdown_density": 0.499588980474948,
+        "n_words": 383.2995,
+        "n_samples": 2000
+      },
+      "olmo3_t_rl_math": {
+        "assistant_phrase_ratio": 0.016994358671379595,
+        "first_person_density": 0.018635424592441822,
+        "hedging_density": 0.020107650796351052,
+        "refusal_density": 0.014010985821386617,
+        "apology_density": 8.905338605072192e-05,
+        "mean_sentence_length": 13.850667193020657,
+        "ttr": 0.34508962392141174,
+        "markdown_density": 0.11973926813144924,
+        "n_words": 393.4817408704352,
+        "n_samples": 1999
+      },
+      "olmo3_t_think_sft": {
+        "assistant_phrase_ratio": 0.03484196507833522,
+        "first_person_density": 0.026620743722807497,
+        "hedging_density": 0.0307438191729494,
+        "refusal_density": 0.011467579939814666,
+        "apology_density": 0.0007449772130002373,
+        "mean_sentence_length": 13.62379885561089,
+        "ttr": 0.442215066201162,
+        "markdown_density": 0.4382941023502382,
+        "n_words": 378.3755,
+        "n_samples": 2000
+      },
+      "olmo3_t_think": {
+        "assistant_phrase_ratio": 0.050033028887811734,
+        "first_person_density": 0.043002945724898524,
+        "hedging_density": 0.0390047260811358,
+        "refusal_density": 0.016561977234359516,
+        "apology_density": 0.0001158391620240816,
+        "mean_sentence_length": 12.073231048076845,
+        "ttr": 0.4652463811912328,
+        "markdown_density": 0.05659345304700514,
+        "n_words": 377.6378189094547,
+        "n_samples": 1999
+      }
+    }
+  },
+  "F2_key_folds_olmo3": {
+    "assistant_phrase_base_to_rlvr": 15.845391125736942,
+    "refusal_sft_to_dpo": 0.02221506422662921,
+    "n_words_base_to_rlvr": 0.12182304038243442,
+    "markdown_base_to_rlvr": 0.020569799846588264,
+    "first_person_base_to_rlvr": 3.3045463586090813,
+    "hedging_base_to_rlvr": 2.0795723307395657,
+    "ttr_base_to_rlvr": 1.5853628123552002
+  },
+  "F2b_ministral3_trajectory": {
+    "bos_only": {
+      "m3_3_base": {
+        "assistant_phrase_ratio": 0.013824822728073505,
+        "first_person_density": 0.01278887899887518,
+        "hedging_density": 0.009037407223375331,
+        "refusal_density": 0.0048041085809227835,
+        "mean_sentence_length": 25.911317144085334,
+        "n_words": 311.3386515697375,
+        "n_samples": 1943
+      },
+      "m3_3_it": {
+        "assistant_phrase_ratio": 0.012767198369688348,
+        "first_person_density": 0.010483431666027698,
+        "hedging_density": 0.007781919837805554,
+        "refusal_density": 0.004297070032082304,
+        "mean_sentence_length": 25.991330329953264,
+        "n_words": 308.59486663311526,
+        "n_samples": 1987
+      },
+      "m3_3_reason": {
+        "assistant_phrase_ratio": 0.014119685101234708,
+        "first_person_density": 0.01564950645082596,
+        "hedging_density": 0.009161808776648279,
+        "refusal_density": 0.004397472425101014,
+        "mean_sentence_length": 27.453534277603183,
+        "n_words": 332.32663316582915,
+        "n_samples": 1990
+      },
+      "m3_8_base": {
+        "assistant_phrase_ratio": 0.013381122556074238,
+        "first_person_density": 0.0128060683725277,
+        "hedging_density": 0.008385087978640827,
+        "refusal_density": 0.004832668038493409,
+        "mean_sentence_length": 25.456540916267194,
+        "n_words": 300.55361723961005,
+        "n_samples": 1949
+      },
+      "m3_8_it": {
+        "assistant_phrase_ratio": 0.0023108275739854686,
+        "first_person_density": 0.0027323731906607786,
+        "hedging_density": 0.0006398376974864499,
+        "refusal_density": 0.0012920760665121568,
+        "mean_sentence_length": 35.30860919826975,
+        "n_words": 358.387969924812,
+        "n_samples": 1995
+      },
+      "m3_8_reason": {
+        "assistant_phrase_ratio": 0.015836949500776777,
+        "first_person_density": 0.015490233261051754,
+        "hedging_density": 0.009631498303710522,
+        "refusal_density": 0.0052703791930106035,
+        "mean_sentence_length": 26.96448598189679,
+        "n_words": 295.15835475578405,
+        "n_samples": 1945
+      },
+      "m3_14_it": {
+        "assistant_phrase_ratio": 0.01293666316610787,
+        "first_person_density": 0.013294021299781635,
+        "hedging_density": 0.008404998258683035,
+        "refusal_density": 0.004831916204413496,
+        "mean_sentence_length": 25.300791699169366,
+        "n_words": 314.77096936212956,
+        "n_samples": 1991
+      }
+    },
+    "empty_user": {
+      "m3_3_base": {
+        "assistant_phrase_ratio": 0.01371485911768147,
+        "first_person_density": 0.012790311115866045,
+        "hedging_density": 0.008933722196465772,
+        "refusal_density": 0.004660351155970836,
+        "mean_sentence_length": 25.510820085520994,
+        "n_words": 313.6175257731959,
+        "n_samples": 1940
+      },
+      "m3_3_it": {
+        "assistant_phrase_ratio": 0.06678171548309166,
+        "first_person_density": 0.025013586655336827,
+        "hedging_density": 0.01714520744517892,
+        "refusal_density": 0.006819413698785803,
+        "mean_sentence_length": 17.670950025442515,
+        "n_words": 177.7130681818182,
+        "n_samples": 1760
+      },
+      "m3_3_reason": {
+        "assistant_phrase_ratio": 0.03605705319066393,
+        "first_person_density": 0.019268417761802152,
+        "hedging_density": 0.03505360553925019,
+        "refusal_density": 0.002814871792184461,
+        "mean_sentence_length": 17.494369395795736,
+        "n_words": 388.6061061061061,
+        "n_samples": 1998
+      },
+      "m3_8_base": {
+        "assistant_phrase_ratio": 0.013381122556074238,
+        "first_person_density": 0.0128060683725277,
+        "hedging_density": 0.008385087978640827,
+        "refusal_density": 0.004832668038493409,
+        "mean_sentence_length": 25.456540916267194,
+        "n_words": 300.55361723961005,
+        "n_samples": 1949
+      },
+      "m3_8_it": {
+        "assistant_phrase_ratio": 0.0029469641025418915,
+        "first_person_density": 0.002573677795711018,
+        "hedging_density": 0.0007978203654922524,
+        "refusal_density": 0.000919729484011625,
+        "mean_sentence_length": 35.371210301326514,
+        "n_words": 360.2441220610305,
+        "n_samples": 1999
+      },
+      "m3_8_reason": {
+        "assistant_phrase_ratio": 0.039309774125486203,
+        "first_person_density": 0.020885562563565708,
+        "hedging_density": 0.02309486838302858,
+        "refusal_density": 0.008663647690178983,
+        "mean_sentence_length": 19.538591460536615,
+        "n_words": 347.19939577039275,
+        "n_samples": 1986
+      },
+      "m3_14_it": {
+        "assistant_phrase_ratio": 0.008374884527186066,
+        "first_person_density": 0.007648328371928496,
+        "hedging_density": 0.004400471120685543,
+        "refusal_density": 0.0050422017638504625,
+        "mean_sentence_length": 20.261747068982014,
+        "n_words": 281.1034836065574,
+        "n_samples": 1952
+      }
+    }
+  },
+  "F2b_key_folds_ministral3_8b": {
+    "assistant_phrase_base_to_it": 0.220232950575895,
+    "n_words_base_to_it": 1.1986018513756016
+  },
+  "F3_persistence": {
+    "qwen3_it": {
+      "self_ref": {
+        "delta_pro": 0.05664689170604445,
+        "delta_anti": -0.005473470008752021,
+        "abs_pro": 0.05664689170604445,
+        "abs_anti": 0.005473470008752021,
+        "ratio_pro_anti": 10.349356370906694
+      },
+      "hedging": {
+        "delta_pro": 0.07118753269446909,
+        "delta_anti": -0.0032942903138108923,
+        "abs_pro": 0.07118753269446909,
+        "abs_anti": 0.0032942903138108923,
+        "ratio_pro_anti": 21.609368304919705
+      },
+      "assistant": {
+        "delta_pro": 0.10619094755199811,
+        "delta_anti": -0.00925682172946927,
+        "abs_pro": 0.10619094755199811,
+        "abs_anti": 0.00925682172946927,
+        "ratio_pro_anti": 11.471642282354557
+      },
+      "verbosity": {
+        "delta_pro": 4.634276302770061,
+        "delta_anti": -1.3217975711181715,
+        "abs_pro": 4.634276302770061,
+        "abs_anti": 1.3217975711181715,
+        "ratio_pro_anti": 3.5060408673997685
+      }
+    },
+    "llama31_it": {
+      "self_ref": {
+        "delta_pro": 0.06236612525282028,
+        "delta_anti": -0.0013034177145640827,
+        "abs_pro": 0.06236612525282028,
+        "abs_anti": 0.0013034177145640827,
+        "ratio_pro_anti": 47.84814918192064
+      },
+      "hedging": {
+        "delta_pro": 0.100889411278215,
+        "delta_anti": -0.0023614879539944605,
+        "abs_pro": 0.100889411278215,
+        "abs_anti": 0.0023614879539944605,
+        "ratio_pro_anti": 42.722814277989606
+      },
+      "assistant": {
+        "delta_pro": 0.18129755244755244,
+        "delta_anti": -0.03156190476190476,
+        "abs_pro": 0.18129755244755244,
+        "abs_anti": 0.03156190476190476,
+        "ratio_pro_anti": 5.744189199454739
+      },
+      "verbosity": {
+        "delta_pro": 89.85001804029305,
+        "delta_anti": 18.646721956625925,
+        "abs_pro": 89.85001804029305,
+        "abs_anti": 18.646721956625925,
+        "ratio_pro_anti": 4.8185422751137095
+      }
+    },
+    "ministral3_8b_it": {
+      "self_ref": {
+        "delta_pro": 0.00012499839081441888,
+        "delta_anti": 7.538305489213429e-06,
+        "abs_pro": 0.00012499839081441888,
+        "abs_anti": 7.538305489213429e-06,
+        "ratio_pro_anti": 16.581762438956506
+      },
+      "hedging": {
+        "delta_pro": -1.832127638131428e-05,
+        "delta_anti": -3.491127369761437e-06,
+        "abs_pro": 1.832127638131428e-05,
+        "abs_anti": 3.491127369761437e-06,
+        "ratio_pro_anti": 5.247954153722627
+      },
+      "assistant": {
+        "delta_pro": 1.5466682133348942e-05,
+        "delta_anti": 0.0001446001446001443,
+        "abs_pro": 1.5466682133348942e-05,
+        "abs_anti": 0.0001446001446001443,
+        "ratio_pro_anti": 0.10696173351775132
+      },
+      "verbosity": {
+        "delta_pro": -0.5965568852006768,
+        "delta_anti": -0.0019470932094449722,
+        "abs_pro": 0.5965568852006768,
+        "abs_anti": 0.0019470932094449722,
+        "ratio_pro_anti": 306.38332171613297
+      }
+    },
+    "gemma4_it": {
+      "self_ref": {
+        "delta_pro": 0.07258453104312552,
+        "delta_anti": -0.008739773333494193,
+        "abs_pro": 0.07258453104312552,
+        "abs_anti": 0.008739773333494193,
+        "ratio_pro_anti": 8.305081639240404
+      },
+      "hedging": {
+        "delta_pro": 0.1331582278482527,
+        "delta_anti": -0.005004093562182953,
+        "abs_pro": 0.1331582278482527,
+        "abs_anti": 0.005004093562182953,
+        "ratio_pro_anti": 26.609859746540117
+      },
+      "assistant": {
+        "delta_pro": 0.47410696248196244,
+        "delta_anti": 0.02801904761904762,
+        "abs_pro": 0.47410696248196244,
+        "abs_anti": 0.02801904761904762,
+        "ratio_pro_anti": 16.920880714006135
+      },
+      "verbosity": {
+        "delta_pro": 105.80443333333332,
+        "delta_anti": -0.004018841233495607,
+        "abs_pro": 105.80443333333332,
+        "abs_anti": 0.004018841233495607,
+        "ratio_pro_anti": 26327.099575741173
+      }
+    },
+    "olmo3_t_rlvr": {
+      "self_ref": {
+        "delta_pro": 0.07776321711007862,
+        "delta_anti": -0.002521117189855669,
+        "abs_pro": 0.07776321711007862,
+        "abs_anti": 0.002521117189855669,
+        "ratio_pro_anti": 30.844745108628
+      },
+      "hedging": {
+        "delta_pro": 0.051200009706366754,
+        "delta_anti": -0.0010835940497137299,
+        "abs_pro": 0.051200009706366754,
+        "abs_anti": 0.0010835940497137299,
+        "ratio_pro_anti": 47.25017613366654
+      },
+      "assistant": {
+        "delta_pro": 0.085395670995671,
+        "delta_anti": -0.0003499999999999996,
+        "abs_pro": 0.085395670995671,
+        "abs_anti": 0.0003499999999999996,
+        "ratio_pro_anti": 243.98763141620313
+      },
+      "verbosity": {
+        "delta_pro": 22.880805069427293,
+        "delta_anti": 3.120744957033015,
+        "abs_pro": 22.880805069427293,
+        "abs_anti": 3.120744957033015,
+        "ratio_pro_anti": 7.3318407574006805
+      }
+    }
+  },
+  "F3_mean_ratio_pro_over_anti": 1359.2369947029624,
+  "F3_median_ratio": 16.75132157648132,
+  "F4_probe": {
+    "probe_transfer_chat_template_no_gen_prompt_to_empty_user": {
+      "train_condition": "chat_template_no_gen_prompt",
+      "test_condition": "empty_user",
+      "in_acc": 1.0,
+      "transfer_acc": 0.989,
+      "retention": 0.989,
+      "n_train": 1000,
+      "n_test_overlap": 1000,
+      "shared_families": [
+        "aya",
+        "granite4",
+        "llama",
+        "olmo3",
+        "qwen3"
+      ]
+    },
+    "probe_transfer_chat_template_no_gen_prompt_to_bos_only": {
+      "train_condition": "chat_template_no_gen_prompt",
+      "test_condition": "bos_only",
+      "in_acc": 1.0,
+      "transfer_acc": 0.844,
+      "retention": 0.844,
+      "n_train": 1000,
+      "n_test_overlap": 1000,
+      "shared_families": [
+        "aya",
+        "granite4",
+        "llama",
+        "olmo3",
+        "qwen3"
+      ]
+    },
+    "probe_family_bos_only": {
+      "condition": "bos_only",
+      "cv_mean": 0.9789999999999999,
+      "cv_std": 0.004898979485566361,
+      "n_samples": 1000,
+      "n_families": 5,
+      "report": {
+        "aya": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 200.0
+        },
+        "granite4": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 200.0
+        },
+        "llama": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 200.0
+        },
+        "olmo3": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 200.0
+        },
+        "qwen3": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 200.0
+        },
+        "accuracy": 1.0,
+        "macro avg": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 1000.0
+        },
+        "weighted avg": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 1000.0
+        }
+      }
+    },
+    "probe_transfer_empty_user_to_bos_only": {
+      "train_condition": "empty_user",
+      "test_condition": "bos_only",
+      "in_acc": 1.0,
+      "transfer_acc": 0.533,
+      "retention": 0.533,
+      "n_train": 1000,
+      "n_test_overlap": 1000,
+      "shared_families": [
+        "aya",
+        "granite4",
+        "llama",
+        "olmo3",
+        "qwen3"
+      ]
+    },
+    "probe_family_chat_template_no_gen_prompt": {
+      "condition": "chat_template_no_gen_prompt",
+      "cv_mean": 0.9890000000000001,
+      "cv_std": 0.0058309518948453055,
+      "n_samples": 1000,
+      "n_families": 5,
+      "report": {
+        "aya": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 200.0
+        },
+        "granite4": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 200.0
+        },
+        "llama": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 200.0
+        },
+        "olmo3": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 200.0
+        },
+        "qwen3": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 200.0
+        },
+        "accuracy": 1.0,
+        "macro avg": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 1000.0
+        },
+        "weighted avg": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 1000.0
+        }
+      }
+    },
+    "probe_family_empty_user": {
+      "condition": "empty_user",
+      "cv_mean": 0.992,
+      "cv_std": 0.006782329983125274,
+      "n_samples": 1000,
+      "n_families": 5,
+      "report": {
+        "aya": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 200.0
+        },
+        "granite4": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 200.0
+        },
+        "llama": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 200.0
+        },
+        "olmo3": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 200.0
+        },
+        "qwen3": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 200.0
+        },
+        "accuracy": 1.0,
+        "macro avg": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 1000.0
+        },
+        "weighted avg": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 1000.0
+        }
+      }
+    },
+    "probe_transfer_empty_user_to_chat_template_no_gen_prompt": {
+      "train_condition": "empty_user",
+      "test_condition": "chat_template_no_gen_prompt",
+      "in_acc": 1.0,
+      "transfer_acc": 0.781,
+      "retention": 0.781,
+      "n_train": 1000,
+      "n_test_overlap": 1000,
+      "shared_families": [
+        "aya",
+        "granite4",
+        "llama",
+        "olmo3",
+        "qwen3"
+      ]
+    },
+    "probe_transfer_bos_only_to_chat_template_no_gen_prompt": {
+      "train_condition": "bos_only",
+      "test_condition": "chat_template_no_gen_prompt",
+      "in_acc": 1.0,
+      "transfer_acc": 0.944,
+      "retention": 0.944,
+      "n_train": 1000,
+      "n_test_overlap": 1000,
+      "shared_families": [
+        "aya",
+        "granite4",
+        "llama",
+        "olmo3",
+        "qwen3"
+      ]
+    },
+    "probe_transfer_bos_only_to_empty_user": {
+      "train_condition": "bos_only",
+      "test_condition": "empty_user",
+      "in_acc": 1.0,
+      "transfer_acc": 0.984,
+      "retention": 0.984,
+      "n_train": 1000,
+      "n_test_overlap": 1000,
+      "shared_families": [
+        "aya",
+        "granite4",
+        "llama",
+        "olmo3",
+        "qwen3"
+      ]
+    }
+  }
+}

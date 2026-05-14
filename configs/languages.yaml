@@ -1,0 +1,9 @@
+# Language setup. Paper analysis is English-only; this file lists the
+# language(s) used by the sampling pipeline.
+
+languages:
+  - code: en
+    name: English
+    spacy_model: en_core_web_sm
+    continue_cue: "Continue."
+    document_opening: "The following is a passage."
