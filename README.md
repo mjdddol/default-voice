@@ -8,13 +8,11 @@ Anonymous supplementary material for the EMNLP submission "The Default Voice of 
 .
 +-- src/                  Sampling, feature extraction, probes, ablation, figures
 +-- configs/              YAML: models, conditions, languages, features, robustness
-+-- data/
-    +-- lexicons/         Hedging, refusal, assistant-phrase, politeness, formality, etc.
-    +-- prompts/          Per-condition prompt seeds
-    \-- suppression/      System prompts for the persistence experiment
++-- data/lexicons/        Hedging, refusal, assistant-phrase, politeness, formality, etc.
 +-- analysis/             JSON results: probe accuracies, lexicon ablation, position split
 \-- outputs/
-    \-- all_features.parquet   Per-sample features used in every figure and table
+    +-- all_features.parquet   Per-sample features used in every figure and table
+    \-- summary.csv            Ablation experiment per-cell means (Table 13)
 ```
 
 ## Requirements

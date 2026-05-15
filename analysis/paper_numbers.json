@@ -769,8 +769,8 @@
       }
     }
   },
-  "F3_mean_ratio_pro_over_anti": 1359.2369947029624,
-  "F3_median_ratio": 16.75132157648132,
+  "F3_mean_ratio_pro_over_anti": 1678.5262433760572,
+  "F3_median_ratio": 19.26512450946292,
   "F4_probe": {
     "probe_transfer_chat_template_no_gen_prompt_to_empty_user": {
       "train_condition": "chat_template_no_gen_prompt",
@@ -1024,5 +1024,6 @@
         "qwen3"
       ]
     }
-  }
+  },
+  "F3_median_ratio_note": "Median of |Delta_pro|/|Delta_anti| across 16 (feature, family) pairs (4 activating families x 4 target features, Ministral 3 8B Instruct excluded)."
 }
