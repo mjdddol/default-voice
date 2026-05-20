@@ -11,8 +11,11 @@ Anonymous supplementary material for the EMNLP submission "The Default Voice of 
 +-- data/lexicons/        Hedging, refusal, assistant-phrase, politeness, formality, etc.
 +-- analysis/             JSON results: probe accuracies, lexicon ablation, position split
 \-- outputs/
-    +-- all_features.parquet   Per-sample features used in every figure and table
-    \-- summary.csv            Ablation experiment per-cell means (Table 13)
+    +-- all_features.parquet            Per-sample features used in every figure and table
+    +-- summary.csv                     Ablation experiment per-cell means (Appendix R, Table 14)
+    \-- raw_vs_dedup_body_full.csv      Raw-sample-weighted vs deduplicated means
+                                        on the seven-family x three-condition main panel
+                                        (Appendix R, Table 6)
 ```
 
 ## Requirements
@@ -34,6 +37,12 @@ python -m src.paper_numbers --features outputs/all_features.parquet
 ```
 
 Probe-transfer accuracies are in `analysis/probe_family_*.json` and `analysis/probe_transfer_*.json`.
+
+The raw-vs-deduplicated sensitivity check (Appendix R, Table 6) is pre-computed in `outputs/raw_vs_dedup_body_full.csv`. To re-derive it from the raw generations (not bundled in this archive), run:
+
+```
+python -m src.raw_vs_dedup_compare
+```
 
 ## Re-running from scratch
 
