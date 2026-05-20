@@ -13,9 +13,11 @@ Anonymous supplementary material for the EMNLP submission "The Default Voice of 
 \-- outputs/
     +-- all_features.parquet            Per-sample features used in every figure and table
     +-- summary.csv                     Ablation experiment per-cell means (Appendix R, Table 14)
-    \-- raw_vs_dedup_body_full.csv      Raw-sample-weighted vs deduplicated means
+    +-- raw_vs_dedup_body_full.csv      Raw-sample-weighted vs deduplicated means
                                         on the seven-family x three-condition main panel
                                         (Appendix R, Table 6)
+    \-- refusal_judge_results.csv       LLM-judge classifications of 200 sampled
+                                        refusal-lexicon hits (Appendix M)
 ```
 
 ## Requirements
@@ -43,6 +45,8 @@ The raw-vs-deduplicated sensitivity check (Appendix R, Table 6) is pre-computed 
 ```
 python -m src.raw_vs_dedup_compare
 ```
+
+The LLM-judge validation of the refusal-like surface lexicon (Appendix M) is pre-computed in `outputs/refusal_judge_results.csv`. The classification script in `src/refusal_judge.py` calls Claude Haiku 4.5 via the Anthropic API and re-classifies a stratified sample of refusal-lexicon hits as actual refusal vs didactic / scope-limit / narrative usage.
 
 ## Re-running from scratch
 
