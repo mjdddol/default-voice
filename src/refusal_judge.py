@@ -64,7 +64,7 @@ def classify(text: str, max_retries: int = 3) -> dict:
                 messages=[{"role": "user", "content": prompt}],
             )
             raw = resp.content[0].text.strip()
-            # Some judges wrap in fences; strip them
+            # Strip optional Markdown code fences.
             if raw.startswith("```"):
                 raw = raw.split("```")[1]
                 if raw.startswith("json"):

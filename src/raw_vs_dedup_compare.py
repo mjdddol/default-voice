@@ -1,31 +1,14 @@
 #!/usr/bin/env python
 """
-Raw-sample-weighted vs deduplicated-unique feature means on the
-main-panel cells (7 instruct families x 3 prompt conditions, English).
+Compute raw-sample-weighted and deduplicated-unique feature means on
+the main-panel cells (seven instruction-tuned families, three prompt
+conditions, English). Raw means weight repeated generations by their
+multiplicity; deduplicated means count each unique string once.
 
-The body of the paper reports feature means over the deduplicated set of
-unique generations per (model, condition). This script contrasts that
-estimand with raw-sample-weighted means computed on the *same generations
-the body uses* (so the comparison stays self-consistent with Figure 1,
-Appendix C, Appendix A, etc.).
-
-Implementation:
-  * Load per-sample features from outputs/all_features.parquet (the
-    source of truth for the body).
-  * For each (model, condition) cell, drop sample_id duplicates that
-    exist from merged feature runs.
-  * Look up the corresponding generation texts from
-    outputs/generations/en/<condition>/<model>.jsonl so we can group
-    rows by string (text dedup, not just sample_id dedup).
-  * Apply the body's 30-word filter.
-  * Compute raw_mean (every retained row counts once, so degenerate
-    repetitions are weighted by their multiplicity) and dedup_mean
-    (each unique string counts once, averaging feature values across
-    rows that share that string).
-
-Writes:
-  outputs/raw_vs_dedup_body_full.csv   (per-cell, per-feature)
-  outputs/raw_vs_dedup_main_panel.csv  (compatibility alias, same content)
+Reads:  outputs/all_features.parquet
+        outputs/generations/en/<condition>/<model>.jsonl
+Writes: outputs/raw_vs_dedup_body_full.csv
+        outputs/raw_vs_dedup_main_panel.csv (alias)
 """
 from __future__ import annotations
 import json
@@ -109,14 +92,12 @@ def main():
             sub["text"] = sub.sample_id.apply(
                 lambda s, m=mkey, c=ckey: text_lookup.get((m, c, int(s))))
             sub = sub[sub.text.notna()]
-            # Body's 30-word filter.
             sub = sub[sub.n_words >= MIN_WORDS]
             if not len(sub):
                 continue
             for fkey, flabel in FEATS.items():
                 if fkey not in sub.columns:
                     continue
-                # Group rows by raw text — each unique string counted once.
                 grp = sub.groupby("text")[fkey].mean()
                 raw_mean = float(sub[fkey].mean())
                 dedup_mean = float(grp.mean())
@@ -138,7 +119,6 @@ def main():
     out.to_csv(OUT_COMPAT, index=False)
     print(f"\nwrote {OUT_FULL} ({len(out)} rows)")
 
-    # Summary
     print("\n=== Per-feature |raw - dedup| summary (across all 20 cells) ===")
     for flabel in FEATS.values():
         s = out[out.feature == flabel]
@@ -149,7 +129,6 @@ def main():
         print(f"  {flabel:<16}  max|diff|={s['diff'].abs().max()*mult:.3f}{unit}  "
               f"median|diff|={s['diff'].abs().median()*mult:.4f}{unit}")
 
-    # Headline cell-by-cell for assistant-phrase
     print("\n=== Assistant-phrase per (model, condition), raw / dedup % ===")
     for m in MODELS.values():
         print(f"\n{m}:")
